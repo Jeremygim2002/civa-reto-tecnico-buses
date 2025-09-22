@@ -9,9 +9,6 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-/**
- * Bus entity representing individual buses
- */
 @Entity
 @Table(name = "bus", indexes = {
     @Index(name = "idx_bus_number", columnList = "number", unique = true),
@@ -51,10 +48,8 @@ public class Bus {
     @JoinColumn(name = "brand_id", nullable = false, foreignKey = @ForeignKey(name = "fk_bus_brand"))
     private Brand brand;
 
-    // Default constructor
     public Bus() {}
 
-    // Constructor with required fields
     public Bus(String number, String plate, Brand brand) {
         this.number = number;
         this.plate = plate;
@@ -72,7 +67,6 @@ public class Bus {
         }
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }
